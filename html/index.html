@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="한국 여행자용 항공권 비교 링크 + 현금/마일리지 판단 (실시간 스크레이핑 없음)" />
+  <title>항공권 비교 &amp; 판단 · PUS→KIX</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="app-header">
+      <p class="eyebrow">한국 여행자 · 비교·판단</p>
+      <h1>항공권 비교 &amp; 판단</h1>
+      <p class="lead">
+        실시간 가격을 긁어오지 않습니다. 메타서치·OTA·LCC 링크를 연 뒤, 확인한 현금(± 마일)을
+        입력하면 한국어로 손익을 정리합니다. 기본 예시: PUS → KIX.
+      </p>
+    </header>
+
+    <main class="panel" id="compare-panel" aria-labelledby="ko-compare-title">
+      <h2 id="ko-compare-title" class="section-title" style="font-size:1.1rem">일정</h2>
+      <div class="field-row" id="route-form">
+        <div class="field">
+          <label for="ko-origin">출발</label>
+          <input id="ko-origin" value="PUS" placeholder="PUS / 부산" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="ko-dest">도착</label>
+          <input id="ko-dest" value="KIX" placeholder="KIX / 오사카" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="ko-out">가는 날</label>
+          <input id="ko-out" type="date" />
+        </div>
+        <div class="field">
+          <label for="ko-ret">오는 날 (선택)</label>
+          <input id="ko-ret" type="date" />
+        </div>
+        <div class="field narrow">
+          <label for="ko-adults">성인</label>
+          <input id="ko-adults" type="number" min="1" max="9" value="1" />
+        </div>
+      </div>
+
+      <section>
+        <h3 class="section-title">비교 링크 (새 탭)</h3>
+        <div id="links-area"><p class="hint">가는 날을 선택하면 비교 링크가 생성됩니다.</p></div>
+      </section>
+
+      <section>
+        <h3 class="section-title">관측 가격 입력 (원)</h3>
+        <p class="hint">사이트에서 본 현금 총액을 붙여 넣으세요. 「최저 현금」만 넣어도 되고, 출처별로 넣으면 더 자세히 비교합니다.</p>
+        <div class="field-row" id="cash-fields"></div>
+        <div class="field-row" style="margin-top:0.75rem">
+          <div class="field">
+            <label for="ko-miles">KE 등 필요 마일 (선택)</label>
+            <input id="ko-miles" inputmode="numeric" placeholder="예: 25000" />
+          </div>
+          <div class="field">
+            <label for="ko-award-cash">어워드 현금(세금·할증)</label>
+            <input id="ko-award-cash" inputmode="numeric" placeholder="예: 90000" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="section-title">판단</h3>
+        <div id="judgment-area"></div>
+      </section>
+    </main>
+
+    <footer>
+      API 키 불필요 · 브라우저에서만 동작 · 딥링크는 best-effort (결제 전 공식 사이트 확인)
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
